@@ -150,6 +150,12 @@ Produces an aggregated plot and summary stats.
 pytest -q
 ```
 
+### 7) Streamlit Dashboard
+```bash
+streamlit run app.py
+```
+Explore rewards, synthetic datasets, and asset graph correlations interactively (defaults to `data_big/`).
+
 ## Interpreting Results
 - **Reward curves:** Upward trends suggest learning; plateauing may indicate convergence. Compare across agents to see co-adaptation.
 - **Spreads/depth:** Makers should tighten spreads in calm regimes and widen in stress; depth should grow where market impact is low.
@@ -183,6 +189,7 @@ pytest -q
 - **PyG install issues:** Use the official wheel selector for your platform/CUDA version.
 - **Exploding losses:** Lower `learning_rate`, increase `value_coef`, or clip gradients (already enabled).
 - **Degenerate books:** Increase `base_spread` or noise intensity to keep depth populated at reset.
+- **Dataset-backed sim:** Ensure `dataset_dir` points to `data_big` (or generated data) to replay depth profiles/orderflow; otherwise the env uses pure on-the-fly synthetic flow.
 
 ## How to Contribute/Modify
 - Adjust defaults in `src/utils/config.py`.

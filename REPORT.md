@@ -91,3 +91,9 @@ Run the same scripts with these baselines and log their rewards to compare again
 3) Centralized critic: enable MAPPO-style joint critic for maker+taker/arb to stabilize learning.
 4) Longer horizons: try `max_steps` 300–400 with smaller LR to allow smoother learning.
 5) Logging: log reward components per episode (delta_mtm, penalties, bonuses) into CSV for quicker diagnosis.
+
+## Running Summary
+- **Code:** PPO with advantage standardization, entropy decay, optional replay from `data_big` (depth profiles, orderflow, regimes), and correlation-based GNN edges.
+- **Datasets:** Generated via `scripts/generate_synthetic_datasets.py`; large set in `data_big/`.
+- **Interactive:** `streamlit run app.py` to browse rewards, datasets, and asset graph.
+- **Artifacts:** Rewards CSVs/plots and policy checkpoints under `artifacts/`.
